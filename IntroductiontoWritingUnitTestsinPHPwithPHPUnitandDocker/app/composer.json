@@ -1,16 +1,16 @@
 {
-	"name"			: "atrox3d/idk",
-	"description"	: "description",
-	"license"		: "MIT",
-    "require-dev"	: {
+    "name"          : "atrox3d/idk",
+    "description"   : "description",
+    "license"       : "MIT",
+    "require-dev"   : {
         "phpunit/phpunit": "^6.0"
     },
-	"scripts": {
-		"test": [
-			"phpunit tests/*.php"
-		],
-		"testdox": [
-			"phpunit --testdox tests/*.php"
-		]
-	}
+    "scripts": {
+        "test": [
+            "phpunit tests/*.php"
+        ],
+        "testdox": [
+            "phpunit --testdox tests/*.php"
+        ]
+    }
 }
