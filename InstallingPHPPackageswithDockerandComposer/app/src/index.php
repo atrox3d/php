@@ -1,4 +1,4 @@
-<?php require('vendor/autoload.php');
+<?php require('../vendor/autoload.php');
 \PHP_Timer::start();
 sleep(rand(1, 3));
 $time = \PHP_Timer::stop();
