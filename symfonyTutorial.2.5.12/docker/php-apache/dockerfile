@@ -1,0 +1,15 @@
+FROM php:apache
+
+#RUN docker-php-ext-install mysqli
+
+RUN docker-php-source extract \
+	&& docker-php-ext-install mysqli pdo pdo_mysql \
+	&& docker-php-source delete
+
+#RUN sed -i 's/;date.timezone =/date.timezone = "Europe\/Paris"/g' /usr/local/etc/php/php.ini
+
+# non esiste di default il file /usr/local/etc/php/php.ini
+# https://github.com/TetraWeb/docker/issues/16
+RUN echo "date.timezone = Europe/Paris" > /usr/local/etc/php/conf.d/timezone.ini
+
+#ENTRYPOINT [ "apache2-foreground" ]

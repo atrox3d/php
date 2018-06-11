@@ -1,0 +1,12 @@
+{
+	"name"			: "atrox3d/composer-tutorial",
+	"description"	: "composer tutorial",
+    "require"	: {},
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+	"autoload": {
+			"psr-4": {
+				"Acme\\": "src/"
+			}
+		}
+}

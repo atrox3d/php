@@ -1,0 +1,77 @@
+version: '2'
+
+services:
+    mysql:
+        extends:
+            file:    ./mysql/docker-compose.yml
+            service: mysql
+
+        volumes:
+            #- "./mysql/mysql:/var/lib/mysql"
+            # montando il progetto da linux non si riesce a scrivere su share win
+            # serve la creazione in locale dei path dati
+            - "~/docker_data/mysql:/var/lib/mysql"
+
+        #
+        # le porte sono gia' esposte in ./mysql/docker-compose.yml
+        #
+        #ports:
+        #    - 3306:3306
+      
+    #es:
+    #    # funziona: crea correttamente la cartella in questa directory
+    #    volumes:
+    #         #- "./es/esdata:/usr/share/elasticsearch/data"             
+    #         - "~/docker_data/esdata:/usr/share/elasticsearch/data"             
+    #    extends:
+    #        # "service is a required property"
+    #        service: elasticsearch
+    #        #
+    #        # questa immagine non ha il plugin delete-by-query
+    #        #
+    #        #file:   ../nested-services-v2/elasticsearch/docker-compose.yml
+    #        #
+    #        #
+    #        #
+    #        file:   ./es/docker-compose.yml
+    #        #
+    #        # funziona anche questo
+    #        #
+    #        #file: ../../dibek/elasticsearch/docker-compose.yml
+    #        
+    #    #command: /usr/share/elasticsearch/bin/plugin install delete-by-query
+    #    
+    #    #
+    #    # le porte sono gia' esposte in ./es/docker-compose.yml
+    #    #
+    #    #ports:
+    #    #    - 9200:9200
+    #    #    - 9300:9300
+
+    php:
+        environment:
+            # mysql service ip address
+            DB_HOST     : mysql
+            DB_USER     : root
+            DB_PASSWORD : p@ssw0rd
+            DB_DATABASE : ecommerce
+            
+            # elastic search service ip address
+            #ES_HOST     : es
+        extends:
+            file:    ./php-apache/docker-compose.yml
+            service: php
+            
+        volumes:
+            - ..:/var/www/html
+        
+        #working_dir: /var/www/html/web
+        #environment: 
+        #    - APACHE_DOCUMENT_ROOT=/var/www/html/web
+
+        #
+        # le porte sono gia' esposte in ./php/docker-compose.yml
+        #
+        #ports:
+        #    - 8080:80
+            
