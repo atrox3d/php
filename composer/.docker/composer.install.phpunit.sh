@@ -9,4 +9,4 @@ command=(
 
 echo ${command[@]}
 
-${com
+${command[@]}
