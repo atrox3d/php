@@ -1,1 +1,12 @@
-docker run --rm -v $(pwd):/app composer/composer:latest require --dev phpunit/phpunit ^6.0
+command=(
+			docker run \
+			--rm \
+			-it \
+			-v $(pwd):/app \
+			composer/composer:latest 
+			require --dev phpunit/phpunit ^6.0
+)
+
+echo ${command[@]}
+
+${com

@@ -1,1 +1,12 @@
-docker run --rm -v $(pwd):/app composer/composer:latest test
+command=(
+			docker run \
+			--rm \
+			-it \
+			-v $(pwd):/app \
+			composer/composer:latest \
+			test
+)
+
+echo ${command[@]}
+
+${command[@]}

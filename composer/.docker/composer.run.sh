@@ -5,9 +5,10 @@ command=(
 			-it \
 			-v $(pwd):/app \
 			composer/composer:latest \
-			$1
-		)
+			"$@"
+)
 
 echo ${command[@]}
+
 ${command[@]}
 

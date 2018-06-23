@@ -1,1 +1,13 @@
-docker run -v $(pwd):/app --rm phpunit/phpunit:latest --bootstrap src/ExampleClass.php tests/ExampleTest.php
+command=(
+			docker run \
+			--rm \
+			-it \
+			-v $(pwd):/app \
+			phpunit/phpunit:latest \
+			"--bootstrap src/ExampleClass.php tests/ExampleTest.php"
+)
+
+echo ${command[@]}
+
+${command[@]}
+
