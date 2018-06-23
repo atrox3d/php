@@ -1,1 +1,1 @@
-.docker/php.bash.sh "/app/composer.phar init"
+./php.bash.sh "/app/composer.phar init"
