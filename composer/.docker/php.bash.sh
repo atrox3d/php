@@ -1,14 +1,13 @@
 command=( 	
 			docker run \
 			--rm \
-			--user $(id -u) \
-			-v /etc/passwd:/etc/passwd \
-			-v /home/nigga:/home/nigga \
+			-it \
 			-v ${2:-$(pwd)}:/app \
 			-w ${3:-/app} \
 			php:cli \
-			php \
-			"$@"
+			${1:-/bin/bash} \
+#			php \
+#			"$@"
 		)
 echo ${command[@]}
 ${command[@]}
