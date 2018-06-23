@@ -1,8 +1,8 @@
 {
-    "name": "app/app",
+    "name": "root/app",
     "type": "project",
     "require-dev": {
-        "phpunit/phpunit": "^7.2"
+        "phpunit/phpunit": "6.0"
     },
     "require": {}
 }
