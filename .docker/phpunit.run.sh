@@ -7,8 +7,9 @@ command=(
 			--rm \
 			-it \
 			-v $(pwd):/app \
+			-w /app \
 			phpunit/phpunit:latest \
-			"${@}"
+			"${@:--c .}"
 )
 
 echo ${command[@]}
