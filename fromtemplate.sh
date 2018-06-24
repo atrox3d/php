@@ -1,2 +1,2 @@
 #!/bin/bash
-cp -r template $1
+cp -r .template $1
