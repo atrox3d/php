@@ -2,7 +2,7 @@ command=(
 			docker run \
 			--rm \
 			-it \
-			--user $(id -u) \
+			--user $(id -u):$(id -g) \
 			-v /etc/passwd:/etc/passwd \
 			-v $HOME:$HOME \
 			-v ${2:-$(pwd)}:/app \

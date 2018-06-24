@@ -4,6 +4,7 @@ command=(
 			--rm \
 			-it \
 			-v $(pwd):/app \
+			-w /app \
 			composer/composer:latest \
 			"$@"
 )

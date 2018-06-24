@@ -4,7 +4,7 @@ command=(
 			-it \
 			-v $(pwd):/app \
 			phpunit/phpunit:latest \
-			"--bootstrap src/ExampleClass.php tests/ExampleTest.php"
+			"${@:---bootstrap src/ExampleClass.php tests/ExampleTest.php}"
 )
 
 echo ${command[@]}
