@@ -1,5 +1,10 @@
+#!/bin/bash
+
+. $(dirname $0)/.dockeroptions.sh
+
 command=( 	
 			docker run \
+			${_docker_opts[@]} \
 			--rm \
 			-it \
 			--user $(id -u):$(id -g) \
