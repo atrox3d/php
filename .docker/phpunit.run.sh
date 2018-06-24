@@ -9,7 +9,8 @@ command=(
 			-v $(pwd):/app \
 			-w /app \
 			phpunit/phpunit:latest \
-			"${@:--c .}"
+			${_command_opts[@]} \
+			"${@:---color=always -c .}"
 )
 
 echo ${command[@]}
