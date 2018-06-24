@@ -3,15 +3,25 @@
 
 _docker_opts=()
 
-for opt
+
+while getopts "d:e:" opt
 do
-	[ ${opt:0:2} = -d ] && {
-		_dockeropt="${opt:2}"
+	_dockeropt=
+	case "$opt" in
+		d)
+			_dockeropt="$OPTARG"
+		;;
+		
+		e)
+			_dockeropt="--entrypoint=$OPTARG"
+		;;
+	esac
+	[ ${_dockeropt:-null} != null ] && {
 		_docker_opts+=( "$_dockeropt" )
 		echo "[$(basename ${BASH_SOURCE[0]})] : $_dockeropt"
-		shift
 	}
 done
+shift "$((OPTIND-1))"
 
 #echo _docker_opts: ${_docker_opts[@]}
 #echo args        : $@
